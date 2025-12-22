@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <title>Invitation</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow: hidden;
+    }
+
+    html,
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        height: 100vh;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    html::-webkit-scrollbar {
+        display: none;
+    }
+
+    .video-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .titles {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .birthday img,
+    .invitation img {
+        transition: transform 1.3s ease, opacity 1.1s ease;
+    }
+
+    .birthday img {
+        padding-top: 3vh;
+        height: min(100px, 10vh);
+        width: min(300px, 50vw);
+    }
+
+    .invitation img {
+        padding-left: 10vw;
+        height: min(55px, 5.5vh);
+        width: min(350px, 55vw);
+    }
+
+    .titles:has(.birthday:hover) .birthday img {
+        transform: scale(1.15);
+    }
+
+    .titles:has(.birthday:hover) .invitation img {
+        transform: scale(0.85);
+        opacity: 0.3;
+    }
+
+    .titles:has(.invitation:hover) .invitation img {
+        transform: scale(1.25);
+    }
+
+    .titles:has(.invitation:hover) .birthday img {
+        transform: scale(0.90);
+        opacity: 0.2;
+    }
+
+    body::before {
+        display: none;
+    }
+
+    body::after {
+        display: none;
+    }
+
+    .seperator {
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .seperator img {
+        opacity: 0.35;
+        height: min(40px, 4vh);
+        width: min(900px, 100vw);
+    }
+
+    .one {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: -6px;
+    }
+
+    .one img {
+        padding-top: 1vh;
+        height: min(55px, 5.5vh);
+        width: min(600px, 80vw);
+    }
+
+    .heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: min(13px, 2vw);
+        padding: 0 10px;
+    }
+
+    .year img {
+        height: min(45px, 4.5vh);
+        width: min(280px, 40vw);
+    }
+
+    .death img {
+        height: min(70px, 7vh);
+        width: min(200px, 30vw);
+    }
+
+    .eventbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5vh;
+        margin-top: 4vh;
+    }
+
+    .eventsplace {
+        position: relative;
+        width: min(500px, 90vw);
+    }
+
+    .events {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .search {
+        position: absolute;
+        left: 14%;
+        top: 28%;
+        transform: translate(-50%, -50%) scale(0.12);
+        width: clamp(18px, 3vw, 28px);
+        height: auto;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        body::before, body::after {
+            width: 150px;
+        }
+
+        .eventbox img {
+            width: 90vw;
+            max-width: 500px;
+            height: auto;
+        }
+    }
+</style>
+
+<body>
+    <video autoplay muted loop class="video-bg">
+        <source src="assets/background.mp4" type="video/mp4">
+    </video>
+
+    <div class="titles">
+        <div class="birthday">
+            <img src="assets/birthday.png">
+        </div>
+        <div class="invitation">
+            <img src="assets/invitation.png" href="https://goo.gl/maps/gejEgXhWpGnoXEZBA?g_st=aw">
+        </div>
+    </div>
+
+    <div class="seperator">
+        <img src="assets/seperator.gif">
+    </div>
+
+    <div class="one">
+        <img src="assets/one.png">
+    </div>
+
+    <div class="heading">
+        <div class="year">
+            <img src="assets/year.png">
+        </div>
+        <div class="death">
+            <img src="assets/death.gif">
+        </div>
+    </div>
+
+    <div class="seperator">
+        <img src="assets/seperator.gif">
+    </div>
+
+    <div class="eventbox">
+        <div class="eventsplace">
+            <img src="assets/place.png" class="events">
+            <a href="https://goo.gl/maps/gejEgXhWpGnoXEZBA?g_st=aw" target="_blank">
+                <img src="assets/search.png" class="search">
+            </a>
+        </div>
+        <img src="assets/date.png" class="events">
+        <img src="assets/time.png" class="events">
+    </div>
+</body>
+
+</html>
