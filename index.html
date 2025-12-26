@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <title>Invitation</title>
+    <title>19th</title>
 </head>
+
 <style>
     * {
         margin: 0;
@@ -16,56 +14,28 @@
         box-sizing: border-box;
     }
 
-    html {
-        overflow: hidden;
-    }
-
-    html,
-    body {
-        margin: 0;
+    html, body {
         overflow-x: hidden;
-    }
-
-    body {
-        overflow-y: auto;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        height: 100vh;
-    }
-
-    body::-webkit-scrollbar {
-        display: none;
-    }
-
-    html::-webkit-scrollbar {
-        display: none;
     }
 
     .video-bg {
         position: fixed;
-        top: 0;
-        left: 0;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        z-index: -1;
+        z-index: -5;
     }
 
     .titles {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
     }
 
-    .birthday img,
-    .invitation img {
-        transition: transform 1.3s ease, opacity 1.1s ease;
-    }
-
     .birthday img {
-        padding-top: 3vh;
-        height: min(100px, 10vh);
+        padding-top: 2vh;
+        height: min(90px, 10vh);
         width: min(300px, 50vw);
     }
 
@@ -73,6 +43,10 @@
         padding-left: 10vw;
         height: min(55px, 5.5vh);
         width: min(350px, 55vw);
+    }
+
+    .birthday img, .invitation img {
+        transition: transform 1.3s ease, opacity 1.1s ease;
     }
 
     .titles:has(.birthday:hover) .birthday img {
@@ -102,27 +76,28 @@
     }
 
     .seperator {
+        width: 100vw;
+        margin: 0;
         overflow: hidden;
         line-height: 0;
     }
 
     .seperator img {
-        opacity: 0.35;
         height: min(40px, 4vh);
-        width: min(900px, 100vw);
+        width: 120vw;
+        opacity: 0.35;
+        display: block;
     }
 
     .one {
         display: flex;
         justify-content: center;
-        align-items: center;
-        margin-bottom: -6px;
     }
 
     .one img {
-        padding-top: 1vh;
-        height: min(55px, 5.5vh);
-        width: min(600px, 80vw);
+        padding-top: 12px;
+        height: min(72px, 7.2vh);
+        width: min(675px, 90vw);
     }
 
     .heading {
@@ -130,50 +105,145 @@
         justify-content: center;
         align-items: center;
         gap: min(13px, 2vw);
-        padding: 0 10px;
+        margin-top: -4px;
+        margin-bottom: -4px;
     }
 
     .year img {
-        height: min(45px, 4.5vh);
-        width: min(280px, 40vw);
+        height: min(55px, 5.5vh);
+        width: min(325px, 50vw);
     }
 
     .death img {
-        height: min(70px, 7vh);
-        width: min(200px, 30vw);
+        height: min(85px, 8.5vh);
+        width: min(250px, 35vw);
     }
 
     .eventbox {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 2vh;
         gap: 5vh;
-        margin-top: 4vh;
     }
 
-    .place {
+    .event {
         position: relative;
-        width: min(500px, 90vw);
+        width: min(520px, 90vw);
+        transform: scale(0.92);
+        opacity: 0.45;
+        animation: focusCycle 9s infinite ease;
     }
 
-    .events {
+    .event img.events {
         width: 100%;
         height: auto;
         display: block;
+        position: relative;
+        z-index: 2;
+    }
+
+    .event::before {
+        content: "";
+        position: absolute;
+        inset: -22px;
+        background: radial-gradient(circle, rgba(120, 0, 0, 0.6), transparent 60%);
+        filter: blur(35px);
+        opacity: 0;
+        z-index: 1;
+        animation: glowCycle 9s infinite ease;
+    }
+
+    .place {
+        animation-delay: 0s;
+    }
+
+    .place::before {
+        animation-delay: 0s;
+    }
+
+    .date {
+        animation-delay: 3s;
+    }
+
+    .date::before {
+        animation-delay: 3s;
+    }
+
+    .time {
+        animation-delay: 6s;
+    }
+
+    .time::before {
+        animation-delay: 6s;
+    }
+
+    @keyframes focusCycle {
+        0% {
+            transform: scale(0.92);
+            opacity: 0.55;
+        }
+
+        10% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        30% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        40% {
+            transform: scale(0.92);
+            opacity: 0.55;
+        }
+
+        100% {
+            transform: scale(0.92);
+            opacity: 0.55;
+        }
+    }
+
+    @keyframes glowCycle {
+        0% {
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        30% {
+            opacity: 1;
+        }
+
+        40% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+        }
     }
 
     .search {
         position: absolute;
         left: 14%;
         top: 28%;
-        transform: translate(-50%, -50%) scale(0.12);
-        width: clamp(18px, 3vw, 28px);
+        transform: translate(-50%, -50%);
+        width: 12%;
+        max-width: 250px;
+        min-width: 250px;
         height: auto;
         cursor: pointer;
+        z-index: 5;
     }
 
     @media (max-width: 768px) {
-        body::before, body::after {
+
+        body::before,
+        body::after {
             width: 150px;
         }
 
@@ -182,7 +252,20 @@
             max-width: 500px;
             height: auto;
         }
+
+        .search {
+            transform: translate(-50%, -50%) scale(0.14);
+        }
     }
+
+    #footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
 </style>
 
 <body>
@@ -195,7 +278,7 @@
             <img src="assets/birthday.png">
         </div>
         <div class="invitation">
-            <img src="assets/invitation.png" href="https://goo.gl/maps/gejEgXhWpGnoXEZBA?g_st=aw">
+            <img src="assets/invitation.png">
         </div>
     </div>
 
@@ -221,15 +304,39 @@
     </div>
 
     <div class="eventbox">
-        <div class="place">
+        <div class="event place">
             <img src="assets/place.png" class="events">
             <a href="https://goo.gl/maps/gejEgXhWpGnoXEZBA?g_st=aw" target="_blank">
                 <img src="assets/search.png" class="search">
             </a>
         </div>
-        <img src="assets/date.png" class="events">
-        <img src="assets/time.png" class="events">
+
+        <div class="event date">
+            <img src="assets/date.png" class="events">
+        </div>
+
+        <div class="event time">
+            <img src="assets/time.png" class="events">
+        </div>
     </div>
+
+    <footer id="footer">
+        made by nikunj <br>
+
+        <a href="https://www.instagram.com/nikvjn?igsh=MTR2OWhjanpyY2V3dg==" target="_blank"
+            style="margin:0 6px; text-decoration:none;">
+            <img src="assets/instagram.png" width="22">
+        </a>
+
+        <a href="https://goo.gl/maps/gejEgXhWpGnoXEZBA?g_st=aw" target="_blank" style="margin:0 6px; text-decoration:none;">
+            <img src="assets/maps.png" width="22">
+        </a>
+
+        <a href="https://github.com/nikvjn"
+            target="_blank" style="margin:0 6px; text-decoration:none;">
+            <img src="assets/github.png" width="22">
+        </a>
+    </footer>
 </body>
 
 </html>
