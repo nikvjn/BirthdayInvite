@@ -15,9 +15,14 @@
     }
 
     html, body {
-        overflow-x: hidden;
         height: 100%;
         margin: 0;
+        overflow: hidden;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
     }
 
     .video-bg {
@@ -47,7 +52,8 @@
         width: min(350px, 55vw);
     }
 
-    .birthday img, .invitation img {
+    .birthday img,
+    .invitation img {
         transition: transform 1.3s ease, opacity 1.1s ease;
     }
 
@@ -261,13 +267,13 @@
     }
 
     #footer {
-    text-align: center;
-    margin-top: 15px;
-    padding: 15px;
-    color: #ffffff;
-    font-size: 1rem;
-}
-
+        text-align: center;
+        margin-top: 15px;
+        padding: 15px;
+        color: #ffffff;
+        font-size: 1rem;
+        margin-top: auto;
+    }
 </style>
 
 <body>
@@ -330,12 +336,12 @@
             <img src="assets/instagram.png" width="22">
         </a>
 
-        <a href="https://goo.gl/maps/gejEgXhWpGnoXEZBA?g_st=aw" target="_blank" style="margin:0 6px; text-decoration:none;">
+        <a href="https://goo.gl/maps/gejEgXhWpGnoXEZBA?g_st=aw" target="_blank"
+            style="margin:0 6px; text-decoration:none;">
             <img src="assets/maps.png" width="22">
         </a>
 
-        <a href="https://github.com/nikvjn"
-            target="_blank" style="margin:0 6px; text-decoration:none;">
+        <a href="https://github.com/nikvjn" target="_blank" style="margin:0 6px; text-decoration:none;">
             <img src="assets/github.png" width="22">
         </a>
     </footer>
